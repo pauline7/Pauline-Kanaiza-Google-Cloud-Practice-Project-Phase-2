@@ -1,0 +1,38 @@
+##OBJECTIVES
+-Download a sample app from Github
+-Deploy an application to App Engine
+-Examine the Cloud logs
+-View Profiler information
+-Explore Cloud Trace
+-Monitor resources using dashboards
+-Create uptime checks and alerts
+
+##STEPS
+1.Download sample app from Github
+  a. mkdir gcp-logging
+  b. cd gcp-logging
+  c. git clone https://GitHub.com/GoogleCloudPlatform/training-data-analyst.git
+  d. cd training-data-analyst/courses/design-process/deploying-apps-to-gcp
+  e. In gcp-logging/training-data-analyst/courses/design-process/deploying-apps-to-gcp main.py file add to line 2; import googlecloudprofiler and in line 11; try:
+    googlecloudprofiler.start(verbose=3)
+    except (ValueError, NotImplementedError) as exc:
+    print(exc)
+  f. In requirements.txt file add; google-cloud-profiler
+  g. gcloud services enable cloudprofiler.googleapis.com
+  h. sudo pip3 install -r requirements.txt
+     python3 main.py
+2.Deploy an application to App Engine
+  a. Create app.yaml file in gcp-logging/training-data-analyst/courses/design-process/deploying-apps-to-gcp
+  b. Add runtime: python37 to app.yalm file
+  c. gcloud app create --region=us-central
+  d. gcloud app deploy --version=one --quiet
+3.Examine the Cloud logs
+4.View Profiler information
+  a. Create VM setting any other region apart from US CENTRAL 1a
+  b. sudo apt update
+     sudo apt install apache2-utils -y
+  c. ab -n 1000 -c 10 https://<your-project-id>.appspot.com/
+5. Explore Cloud Trace
+6. Monitor resources using Dashboards
+7. Create uptime checks and alerts
+   a. Create uptime check
